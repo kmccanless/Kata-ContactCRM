@@ -4,7 +4,8 @@ var restify = require('restify');
 
 function addContact(req, res, next) {
     console.log("adding contact");
-    var contact = JSON.parse(req.body);
+    //var contact = JSON.parse(req.body);
+    var contact = req.body;
     MongoClient.connect('mongodb://127.0.0.1:27017/katas', function(err, db) {
         if(err) throw err;
 
@@ -24,7 +25,7 @@ function addContact(req, res, next) {
 
 function updateContact(req, res, next) {
     console.log("updating contact");
-    var contact = JSON.parse(req.body);
+    var contact = req.body;
     var id = req.params.email;
     MongoClient.connect('mongodb://127.0.0.1:27017/katas', function(err, db) {
         if(err) throw err;
